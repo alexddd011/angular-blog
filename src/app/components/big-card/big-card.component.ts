@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DataCard } from './../../interface/data-card';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-big-card',
@@ -6,17 +7,17 @@ import { Component } from '@angular/core';
     <div class="container__big__card">
       <div class="bid-card__photo">
         <img 
-          src="../../../assets/img/placeholder.png" 
+          src="{{DataCard.photo}}" 
           alt=""
         >
       </div>
       <a href="">
         <div class="bid-card__title">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+          <h1>{{DataCard.title}}</h1>
         </div>
 
         <div class="bid-card__description">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, odio!</p>
+          <p>{{DataCard.description}}</p>
         </div>
       </a>
       
@@ -31,6 +32,14 @@ import { Component } from '@angular/core';
     '.container__big__card > a > .bid-card__description > p{color:grey;}'
   ]
 })
-export class BigCardComponent {
+export class BigCardComponent implements OnInit{
+  
+  @Input() DataCard!:DataCard;
 
+  constructor(){
+
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 }

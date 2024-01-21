@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DataCard } from 'src/app/interface/data-card';
 
 @Component({
   selector: 'app-small-card',
@@ -6,17 +7,17 @@ import { Component } from '@angular/core';
     <div class="container__small__card">
       <div class="small-card__photo">
         <img 
-          src="../../../assets/img/placeholder.png" 
+          src="{{smallDataCard.photo}}" 
           alt=""
         >
       </div>
       <a href="">
         <div class="small-card__title">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+          <h1>{{smallDataCard.title}}</h1>
         </div>
 
         <div class="small-card__description">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, odio!</p>
+          <p>{{smallDataCard.description}}</p>
         </div>
       </a>
     </div>
@@ -27,5 +28,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class SmallCardComponent {
-
+  @Input() smallDataCard!:DataCard
 }
